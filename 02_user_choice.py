@@ -1,5 +1,8 @@
 # Functions go here
-def choice_checker(valid_list, error,   question):
+
+# Asks users what they would like to play with out of the list
+# Output the option they chose
+def choice_checker(valid_list, error, question):
 
   error = "Please choose from Rock / Paper / Scissors (or xxx to quit)"
 
