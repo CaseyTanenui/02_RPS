@@ -7,9 +7,9 @@ game_summary = []
 
 rounds_lost = 0 
 rounds_drawn = 0 
-rounds_played = 5 
+rounds_played = 0
 
-for item in range (0, 5):
+for item in range (0, 10):
   result = input ("Choose results: ")
 
   outcome = "Round {}: {}".format(item, result)

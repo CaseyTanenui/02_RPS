@@ -1,3 +1,5 @@
+# Rock, Paper, Scissors - Base Component V1
+
 import random
 
 # Function go here 
@@ -8,7 +10,6 @@ import random
 # Print error 
 def check_rounds():
   while True: 
-    print()
     response = input("How many rounds would you like to play?: ")
 
     rounds_error = "Please type either <enter> or an integer that is more than 0"
@@ -30,6 +31,7 @@ def check_rounds():
 # Output the option they chose
 def choice_checker(question, valid_list, error):
   
+  # Checks to see if it a valid response..
   valid = False
   while not valid:
 
@@ -64,7 +66,7 @@ def instructions():
     print("If you choose scissors, scissors beats paper")
     print("If you choose rock, rock beats paper")
     print()
-    print("Have fun trying!..")
+    print("Have fun!")
     print()
     return""
 
@@ -104,10 +106,10 @@ def statement_generator(statement, decoration):
     return ""
 
 
-# The Main routine goes here 
+# Main routine goes here..  
 print("Welcome to Rock, Paper, Scissors!")
 print()
-played_before = yes_no("Have you played Rock, Paper, Scissors before?: ")
+played_before = yes_no("Have you played before?: ")
 print()
 
 if played_before == "no":
@@ -134,9 +136,9 @@ rounds_played = 0
 rounds_lost = 0 
 rounds_drawn = 0
 
-# Ask user for no of rounds, <enter> for infinite mode
+# Asks user for no. of rounds, <enter> for infinite mode
 # Pressing enter when the code asks you for # of rounds.
-# Takes user to the Infinite mode.
+# Let's user play infinite mode
 
 rounds = check_rounds()
 
@@ -166,21 +168,23 @@ while end_game == "no":
   # Get computer Choice Checker 
   # Tells user that they have already picked their object
   # Tells the user what they have picked afterwards
-  comp_choice = random.choice(rps_list[:-1])   
-  print("I have chosen, it is your turn..")
+  print("Rock.. Paper.. Scissors")
   print()
 
-  choose = choice_checker("Choose rock / paper / scissors (r/p/s):", rps_list, "Please choose from rock / paper / scissors (or xxx to quit)")
+  choose = choice_checker("Choose Rock, Paper or Scissors.. (R / P / S): ", rps_list, "Please choose from rock / paper / scissors (or xxx to quit)")
 
-  print()
   comp_choice = random.choice(rps_list[:-1])   
-  print("I chose", comp_choice)
+  print()
+  print("SHOOT!")
+  print()
+  print("I Chose", comp_choice)
   print()
 
   # If the code 'xxx' is typed
+  # And commented.
   # The game will end automatically
   if choose == "xxx":
-        break 
+        break
   else:
     rounds_played += 1
 
@@ -190,6 +194,7 @@ while end_game == "no":
       result_decoration = "!"
       feedback = "You've Drawn"
       rounds_drawn += 1
+      print(feedback)
   elif choose == "rock" and comp_choice == "scissors":
     result = "won"
   elif choose == "paper" and comp_choice == "rock":
@@ -198,13 +203,13 @@ while end_game == "no":
     result = "won"
   else:
     result = "lost" 
-    result_decoration = "#"
+    result_decoration = "L"
     rounds_lost +=1
 
   # If user wins 
   # Decorate win 
   if result == "Won":
-    result_decoration = "$"
+    result_decoration = "🇬"
 
 
     feedback ="{} vs {} - you {}".format(choose, comp_choice, result)
@@ -223,26 +228,26 @@ while end_game == "no":
   # End of Game Statements
 
 
-  #  Claculates game stats 
+  # Calculates game statistics.
   percent_win = rounds_won / rounds_played * 100
   percent_lose = rounds_lost / rounds_played * 100
   percent_tie = rounds_drawn / rounds_played * 100
 
   print()
-  print("***** Game History *******")
+  print("*** Game History ***")
   for game in game_summary:
     print(game)
 
-
   print()
 
-  # display game stats with % values to the nearest whole number 
-  print("***** Game Statistics *******")
+  # Displays game stats with % values to the nearest whole number 
+  print("*** Game Statistics ***")
   print("Win: {}, ({:.0f}%)\nLoss: {}, ({:.0f}%)\nTie: {}, ({:.0f}%)".format(rounds_won, percent_win, rounds_lost, percent_lose, rounds_drawn, percent_tie))
   print()
   # End of Game Statements 
   print()
-  print('***** End Game Summary *****')
+  print('*** End Game Summary ***')
   print("Won: {} \t|\t Lost {} \t|\t Draw {}".format(rounds_won, rounds_lost, rounds_drawn))
   print()
   print("Well played!, Press <enter> to play again, or 'xxx' to quit...")  
+
